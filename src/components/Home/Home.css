@@ -1,0 +1,11 @@
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.winter {
+    background: url("../../images/winter.jpg") center center / cover no-repeat;
+}

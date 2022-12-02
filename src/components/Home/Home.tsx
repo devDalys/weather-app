@@ -1,8 +1,16 @@
 import * as React from 'react'
+import {seasonBackground} from "../../utils";
+import './Home.css'
+import cn from 'classnames'
+import WeatherContainer from "../WeatherContainer";
 
-const Home:React.FC = () => {
+const Home: React.FC = () => {
+
+
     return (
-        <div></div>
+        <div className={cn('wrapper', seasonBackground())}>
+            <WeatherContainer />
+        </div>
     )
 }
 
