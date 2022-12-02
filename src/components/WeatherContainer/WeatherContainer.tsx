@@ -1,7 +1,7 @@
 import * as React from 'react'
 import './WeatherContainer.css'
 
-const WeatherContainer:React.FC = () => {
+const WeatherContainer: React.FC = () => {
     return (
         <div className='container'>
             <h2 className='container__title'>
@@ -14,6 +14,9 @@ const WeatherContainer:React.FC = () => {
                 <div className='container__temp-celc'>
                     c
                 </div>
+            </div>
+            <div className='container__forecast'>
+                Mostly Cloudy / Rain Showers
             </div>
         </div>
     )
