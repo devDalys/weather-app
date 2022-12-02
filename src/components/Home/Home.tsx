@@ -5,6 +5,7 @@ import cn from 'classnames'
 import WeatherContainer from "../WeatherContainer";
 import {getWeather} from "../../axios";
 import {RootObject} from "../../types/types";
+import {Context} from "../context/context";
 
 const Home: React.FC = () => {
     const [weather, setWeather] = React.useState<RootObject>();
@@ -14,9 +15,11 @@ const Home: React.FC = () => {
     }, [])
 
     return (
-        <div className={cn('wrapper', seasonBackground())}>
-            <WeatherContainer/>
-        </div>
+        <Context.Provider value={weather as RootObject}>
+            <div className={cn('wrapper', seasonBackground())}>
+                <WeatherContainer/>
+            </div>
+        </Context.Provider>
     )
 }
 

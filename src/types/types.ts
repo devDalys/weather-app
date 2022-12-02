@@ -1,3 +1,5 @@
+import {Root} from "react-dom/client";
+
 export interface context {
 
 }
@@ -8,6 +10,8 @@ export enum Seasons {
     Winter = 'winter',
     Spring = 'spring'
 }
+
+export type ContextRootObject = RootObject | string;
 
 export interface RootObject {
     location: Location;
