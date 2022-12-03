@@ -8,5 +8,14 @@
 
 .winter {
     background: url("../../images/winter.gif") center center / cover no-repeat;
+    animation: backgroundAnimation 2s;
+}
 
+@keyframes backgroundAnimation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

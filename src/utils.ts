@@ -1,4 +1,4 @@
-import {Seasons} from "./types/types";
+import {Position, Seasons} from "./types/types";
 import * as React from "react";
 
 const currentMonth = new Date().getMonth();
@@ -15,6 +15,7 @@ export const seasonBackground = (): Seasons => {
         return Seasons.Autumn
     }
 }
+
 
 
 

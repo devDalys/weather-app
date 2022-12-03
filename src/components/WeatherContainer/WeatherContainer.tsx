@@ -1,11 +1,16 @@
 import * as React from 'react'
 import './WeatherContainer.css'
+import {RootObject} from "../../types/types";
+import {Context} from "../../context/context";
 
 const WeatherContainer: React.FC = () => {
+    const context = React.useContext(Context) as RootObject;
+
+
     return (
         <div className='container'>
             <h2 className='container__title'>
-                Voronezh
+                {context.location.city}
             </h2>
             <div className='container__temp'>
                 <div className='container__temp-value'>

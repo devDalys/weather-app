@@ -1,7 +1,10 @@
-import {Root} from "react-dom/client";
-
 export interface context {
 
+}
+
+export interface Position {
+    latitude: number,
+    longitude: number
 }
 
 export enum Seasons {
