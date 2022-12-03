@@ -6,6 +6,7 @@ import WeatherContainer from "../WeatherContainer";
 import {getWeatherByCoordinates} from "../../axios";
 import {RootObject} from "../../types/types";
 import {Context} from "../../context/context";
+import StartPage from "../StartPage";
 
 const Home: React.FC = () => {
     const [weather, setWeather] = React.useState<RootObject>();
@@ -32,6 +33,14 @@ const Home: React.FC = () => {
     React.useEffect(() => {
         !weather && coordinates?.latitude && getWeatherByCoordinates(coordinates).then(value => setWeather(value))
     }, [coordinates])
+
+    if (!weather || !coordinates?.latitude) {
+        return (
+            <div className='wrapper'>
+                <StartPage />
+            </div>
+        )
+    }
 
     return (
         <Context.Provider value={weather as RootObject}>

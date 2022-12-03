@@ -16,6 +16,8 @@ export const seasonBackground = (): Seasons => {
     }
 }
 
-
+export const farToCelc = (far: number): number => {
+    return Math.round((far - 32) / 1.8)
+}
 
 
