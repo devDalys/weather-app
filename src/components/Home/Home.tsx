@@ -7,6 +7,7 @@ import {getWeatherByCoordinates} from "../../axios";
 import {RootObject} from "../../types/types";
 import {Context} from "../../context/context";
 import StartPage from "../StartPage";
+import {CircularProgress} from "@mui/material";
 
 const Home: React.FC = () => {
     const [weather, setWeather] = React.useState<RootObject>();
@@ -34,10 +35,16 @@ const Home: React.FC = () => {
         !weather && coordinates?.latitude && getWeatherByCoordinates(coordinates).then(value => setWeather(value))
     }, [coordinates])
 
-    if (!weather || !coordinates?.latitude) {
+    if (!coordinates && !weather) {
         return (
             <div className='wrapper'>
-                <StartPage />
+                <StartPage changeState={setWeather}/>
+            </div>
+        )
+    } else if (!weather) {
+        return (
+            <div className='wrapper'>
+                <CircularProgress/>
             </div>
         )
     }

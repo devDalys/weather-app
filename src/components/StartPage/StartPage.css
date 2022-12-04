@@ -1,0 +1,22 @@
+.form {
+    display: flex;
+    align-items: center;
+    border: 1px solid #546269;
+    padding: 0 0 0 15px;
+    border-radius: 10px;
+}
+
+:root .MuiInputLabel-root.Mui-focused,
+:root .MuiInputLabel-root {
+    color: #546269;
+    font-weight: 500;
+
+}
+
+:root .MuiInput-root:before,
+:root .MuiInput-root:after,
+:root .MuiInput-root:hover,
+:root .MuiInput-root:hover:not(.Mui-disabled):before{
+    border-bottom: 0;
+
+}

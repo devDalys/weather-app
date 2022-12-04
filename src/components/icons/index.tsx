@@ -27,3 +27,23 @@ export const happySmile = (
     </svg>
 
 )
+
+export const arrowNext = (
+    <svg width="28px" height="28px" viewBox="0 -4 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <title>arrow-right</title>
+        <desc>Created with Sketch.</desc>
+        <defs></defs>
+        <g id="Vivid.JS" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+            <g id="Vivid-Icons" transform="translate(-515.000000, -651.000000)">
+                <g id="Icons" transform="translate(37.000000, 169.000000)">
+                    <g id="arrow-right" transform="translate(468.000000, 468.000000)">
+                        <g transform="translate(10.000000, 14.000000)" id="Shape">
+                            <polygon fill="#FF6E6E" points="0 12 20 12 15 17 18 20 28 10 18 0 15 3 20 8 0 8"></polygon>
+                            <polygon fill="#0C0058" points="8 8 8 12 0 12 0 8"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </svg>
+)
