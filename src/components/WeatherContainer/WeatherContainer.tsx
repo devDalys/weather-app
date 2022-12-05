@@ -4,6 +4,7 @@ import {RootObject} from "../../types/types";
 import {Context} from "../../context/context";
 import {farToCelc} from "../../utils";
 import Forecast from "../Forecast";
+import {format} from "date-fns";
 
 const WeatherContainer: React.FC = () => {
     const context = React.useContext(Context) as RootObject;
@@ -14,6 +15,7 @@ const WeatherContainer: React.FC = () => {
             <h2 className='container__title'>
                 {context.location.city} / {context.location.country}
             </h2>
+            <h3 className='container__region'>{context.location.region}<br/> {format(new Date(), 'dd.MM.yyy HH:mm')}</h3>
             <div className='container__temp'>
                 <div className='container__temp-value'>
                     {farToCelc(context.current_observation.condition.temperature)}

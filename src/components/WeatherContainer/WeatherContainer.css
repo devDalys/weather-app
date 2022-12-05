@@ -20,6 +20,12 @@
     text-align: center;
 }
 
+.container__region{
+    color: #546269;
+    font-size: 20px;
+    text-align: center;
+}
+
 .container__temp {
     height: 117px;
     display: flex;

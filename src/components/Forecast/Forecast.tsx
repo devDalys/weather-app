@@ -16,8 +16,13 @@ const Forecast: React.FC<Props> = ({forecast}) => {
                     <div className='forecast__item'>
                         <span className='forecast__item_date'>{getForecastDays(cast.date)}</span>
                         <span className='forecast__item_day'>{cast.day}</span>
-                        <span className='forecast__item_day'>{getForecastIcon(cast.text)}</span>
-                        <span className='forecast__item_cast'>{farToCelc((cast.low + cast.high)/2)}</span>
+                        <span className='forecast__item_day'>{getForecastIcon(cast.code)}</span>
+                        <span
+                            className='forecast__item_cast'>
+                            <span>{farToCelc((cast.high))}</span>
+                            /
+                            <span>{farToCelc((cast.low))}</span>
+                        </span>
 
                     </div>
                 )
