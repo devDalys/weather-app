@@ -3,6 +3,7 @@ import './WeatherContainer.css'
 import {RootObject} from "../../types/types";
 import {Context} from "../../context/context";
 import {farToCelc} from "../../utils";
+import Forecast from "../Forecast";
 
 const WeatherContainer: React.FC = () => {
     const context = React.useContext(Context) as RootObject;
@@ -24,6 +25,7 @@ const WeatherContainer: React.FC = () => {
             <div className='container__forecast'>
                 {context.current_observation.condition.text}
             </div>
+            <Forecast forecast={context.forecasts}/>
         </div>
     )
 }

@@ -22,7 +22,7 @@ export interface RootObject {
     forecasts: Forecast[];
 }
 
-interface Forecast {
+export interface Forecast {
     day: string;
     date: number;
     low: number;

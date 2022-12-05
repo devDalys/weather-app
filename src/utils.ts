@@ -1,5 +1,6 @@
-import {Position, Seasons} from "./types/types";
-import * as React from "react";
+import {Seasons} from "./types/types";
+import {format} from 'date-fns'
+import {Clouds, Rain, Sunny} from "./components/icons";
 
 const currentMonth = new Date().getMonth();
 
@@ -20,4 +21,18 @@ export const farToCelc = (far: number): number => {
     return Math.round((far - 32) / 1.8)
 }
 
+export const getForecastDays = (date: number) => {
+    return format(new Date(date * 1000), 'dd/MM');
+}
 
+export const getForecastIcon = (text: string): JSX.Element => {
+    if (['Partly Cloudy', 'Cloudy'].includes(text)) {
+        return Clouds
+    } else if (['Sunny'].includes(text)) {
+        return Sunny
+    } else if (['Freezing Rain'].includes(text)) {
+        return Rain
+    } else {
+        return Sunny
+    }
+}

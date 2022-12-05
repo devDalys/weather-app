@@ -1,0 +1,27 @@
+.forecast{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: auto;
+}
+
+.forecast__item{
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.forecast__item_date,
+.forecast__item_day,
+.forecast__item_cast{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.forecast__item_icon{
+    max-width: 36px;
+    max-height: 36px;
+}
