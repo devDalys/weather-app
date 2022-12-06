@@ -9,6 +9,7 @@ import {Context} from "../../context/context";
 import StartPage from "../StartPage";
 import {CircularProgress} from "@mui/material";
 import {AxiosError} from "axios";
+import '../../i18n'
 
 const Home: React.FC = () => {
     const [weather, setWeather] = React.useState<RootObject>();

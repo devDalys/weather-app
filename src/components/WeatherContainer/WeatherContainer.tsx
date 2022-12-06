@@ -5,10 +5,10 @@ import {Context} from "../../context/context";
 import {farToCelc} from "../../utils";
 import Forecast from "../Forecast";
 import {format} from "date-fns";
+import {useTranslation} from "react-i18next";
 
 const WeatherContainer: React.FC = () => {
     const context = React.useContext(Context) as RootObject;
-
 
     return (
         <div className='container'>

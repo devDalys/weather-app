@@ -22,6 +22,11 @@ export interface RootObject {
     forecasts: Forecast[];
 }
 
+export enum Locale {
+    English = 'en',
+    Russian = 'ru'
+}
+
 export interface Forecast {
     day: string;
     date: number;
@@ -31,7 +36,7 @@ export interface Forecast {
     code: number;
 }
 
-export interface Coordinates{
+export interface Coordinates {
     latitude: number,
     longitude: number
 }

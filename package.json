@@ -18,12 +18,15 @@
     "classnames": "^2.3.2",
     "date-fns": "^2.29.3",
     "i18next": "^22.0.8",
+    "i18next-browser-languagedetector": "^7.0.1",
+    "i18next-http-backend": "^2.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^12.1.0",
     "react-router-dom": "^6.4.3"
   },
   "devDependencies": {
+    "@types/node": "^18.11.11",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
     "@vitejs/plugin-react": "^2.2.0",
