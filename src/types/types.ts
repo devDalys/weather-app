@@ -31,6 +31,11 @@ export interface Forecast {
     code: number;
 }
 
+export interface Coordinates{
+    latitude: number,
+    longitude: number
+}
+
 interface Currentobservation {
     wind: Wind;
     atmosphere: Atmosphere;

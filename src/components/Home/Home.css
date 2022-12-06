@@ -11,6 +11,21 @@
     animation: backgroundAnimation 2s;
 }
 
+.summer {
+    background: url("../../images/summer.gif") center center / cover no-repeat;
+    animation: backgroundAnimation 2s;
+}
+
+.spring {
+    background: url("../../images/spring.gif") center center / cover no-repeat;
+    animation: backgroundAnimation 2s;
+}
+
+.autumn {
+    background: url("../../images/autumn.gif") center center / cover no-repeat;
+    animation: backgroundAnimation 2s;
+}
+
 @keyframes backgroundAnimation {
     from {
         opacity: 0;

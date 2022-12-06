@@ -4,14 +4,14 @@ import './Home.css'
 import cn from 'classnames'
 import WeatherContainer from "../WeatherContainer";
 import {getWeatherByCoordinates} from "../../axios";
-import {RootObject} from "../../types/types";
+import {Coordinates, RootObject} from "../../types/types";
 import {Context} from "../../context/context";
 import StartPage from "../StartPage";
 import {CircularProgress} from "@mui/material";
 
 const Home: React.FC = () => {
     const [weather, setWeather] = React.useState<RootObject>();
-    const [coordinates, setCoordinates] = React.useState<any>()
+    const [coordinates, setCoordinates] = React.useState<Coordinates>()
 
     const onSuccess = (Props: GeolocationPosition) => {
         // широта и долгота
@@ -24,7 +24,7 @@ const Home: React.FC = () => {
         console.log(error)
     }
 
-    React.useEffect(() => {
+    React.useLayoutEffect(() => {
         navigator.geolocation.getCurrentPosition(onSuccess, onError, {
             enableHighAccuracy: true
         })
@@ -33,7 +33,7 @@ const Home: React.FC = () => {
 
     React.useEffect(() => {
         !weather && coordinates?.latitude && getWeatherByCoordinates(coordinates).then(value => setWeather(value))
-    }, [coordinates])
+    }, [coordinates, weather])
 
     if (!coordinates && !weather) {
         return (
