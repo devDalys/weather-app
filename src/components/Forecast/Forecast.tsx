@@ -2,7 +2,6 @@ import * as React from 'react'
 import {Forecast as ForeCastProps} from '../../types/types'
 import {farToCelc, getForecastDays, getForecastIcon} from "../../utils";
 import './Forecast.css'
-import {Clouds, Sunny} from "../icons";
 
 interface Props {
     forecast: ForeCastProps[];
