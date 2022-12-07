@@ -1,36 +1,36 @@
 .forecast {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: auto;
 }
 
 .forecast__item {
-    padding: 10px;
-    width: 100%;
-    display: flex;
-    align-items: center;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .forecast__item_date,
 .forecast__item_day,
 .forecast__item_cast span,
 .forecast__item_cast {
-    color: #fff;
-    font-size: 20px;
-    flex: 1;
-    font-weight: 400;
+  color: #fff;
+  font-size: 20px;
+  flex: 1;
+  font-weight: 400;
 }
 
 .forecast__item_cast span {
-    margin: 0 5px;
+  margin: 0 5px;
 }
 
 .forecast__item_cast span:last-child {
-    color: #546269;
+  color: #546269;
 }
 
 .forecast__item_icon {
-    max-width: 36px;
-    max-height: 36px;
+  max-width: 36px;
+  max-height: 36px;
 }

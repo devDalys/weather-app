@@ -1,4 +1,4 @@
-import * as React from 'react'
-import {ContextRootObject} from "../types/types";
+import * as React from "react";
+import { ContextRootObject } from "../types/types";
 
-export const Context = React.createContext<ContextRootObject>('')
+export const Context = React.createContext<ContextRootObject>("");
