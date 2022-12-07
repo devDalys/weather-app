@@ -9,13 +9,16 @@ import {useTranslation} from "react-i18next";
 
 const WeatherContainer: React.FC = () => {
     const context = React.useContext(Context) as RootObject;
+    const {t} = useTranslation('Forecast')
+
 
     return (
         <div className='container'>
             <h2 className='container__title'>
                 {context.location.city} / {context.location.country}
             </h2>
-            <h3 className='container__region'>{context.location.region}<br/> {format(new Date(), 'dd.MM.yyy HH:mm')}</h3>
+            <h3 className='container__region'>{context.location.region}<br/> {format(new Date(), 'dd.MM.yyy HH:mm')}
+            </h3>
             <div className='container__temp'>
                 <div className='container__temp-value'>
                     {farToCelc(context.current_observation.condition.temperature)}
@@ -25,7 +28,7 @@ const WeatherContainer: React.FC = () => {
                 </div>
             </div>
             <div className='container__forecast'>
-                {context.current_observation.condition.text}
+                {t(context.current_observation.condition.text.toLowerCase())}
             </div>
             <Forecast forecast={context.forecasts}/>
         </div>

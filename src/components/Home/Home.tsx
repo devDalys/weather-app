@@ -10,6 +10,8 @@ import StartPage from "../StartPage";
 import {CircularProgress} from "@mui/material";
 import {AxiosError} from "axios";
 import '../../i18n'
+import {Route, Routes} from "react-router-dom";
+import PageNotFound from "../PageNotFound";
 
 const Home: React.FC = () => {
     const [weather, setWeather] = React.useState<RootObject>();
@@ -60,7 +62,10 @@ const Home: React.FC = () => {
     return (
         <Context.Provider value={weather as RootObject}>
             <div className={cn('wrapper', seasonBackground())}>
-                <WeatherContainer/>
+                <Routes>
+                    <Route path={'/'} element={<WeatherContainer/>}/>
+                    <Route path={'*'} element={<PageNotFound />} />
+                </Routes>
             </div>
         </Context.Provider>
     )
