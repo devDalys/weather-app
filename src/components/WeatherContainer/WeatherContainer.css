@@ -68,3 +68,16 @@
   font-size: 20px;
   color: #546269;
 }
+
+.button{
+  padding: 10px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  color: #546269;
+  backdrop-filter: blur(20px);
+  border: 0;
+  border-radius: 5px;
+  text-decoration: none;
+}
