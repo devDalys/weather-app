@@ -3,7 +3,7 @@ import "../WeatherContainer/WeatherContainer.css";
 import {useTranslation} from "react-i18next";
 
 const ServerNotAvaible: React.FC = () => {
-    const {t} = useTranslation('translation')
+    const {t} = useTranslation('Translation')
 
     return (
         <div className="container" style={{justifyContent: 'center'}}>

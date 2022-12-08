@@ -4,7 +4,7 @@ import {useTranslation} from "react-i18next";
 import {Link} from "react-router-dom";
 
 const PageNotFound: React.FC = () => {
-    const {t} = useTranslation('translation')
+    const {t} = useTranslation('Translation')
 
     return (
         <div className="container" style={{justifyContent: 'center'}}>
