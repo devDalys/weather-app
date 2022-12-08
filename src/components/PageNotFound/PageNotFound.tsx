@@ -7,7 +7,7 @@ const PageNotFound: React.FC = () => {
     const {t} = useTranslation('translation')
 
     return (
-        <div className="container" style={{justifyContent:'center'}}>
+        <div className="container" style={{justifyContent: 'center'}}>
             <span className="container__title">404</span>
             <h1 className="container__title"> {t('Page not found')}</h1>
             <Link to={'/'}>
