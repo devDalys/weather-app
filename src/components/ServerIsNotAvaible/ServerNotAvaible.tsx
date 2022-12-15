@@ -9,6 +9,8 @@ const ServerNotAvaible: React.FC = () => {
         <div className="container" style={{justifyContent: 'center'}}>
             <span className="container__title">500</span>
             <h1 className="container__title"> {t('Not Available')}</h1>
+
+            <a className={'button'} href="/">{t('Try again')}</a>
         </div>
     );
 };
