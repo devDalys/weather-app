@@ -6,6 +6,7 @@ import { Button } from "@mui/material";
 import "./StartPage.css";
 import { getWeatherByCity } from "../../axios";
 import { RootObject } from "../../types/types";
+import {useTranslation} from "react-i18next";
 
 interface Props {
   changeState: React.Dispatch<React.SetStateAction<RootObject | undefined>>;
@@ -20,14 +21,16 @@ const StartPage: React.FC<Props> = React.memo(({ changeState }) => {
     });
   };
 
+  const {t} = useTranslation('Translation')
+
   return (
     <div className="container">
       <h2 className="container__title" style={{ textAlign: "center" }}>
-        Please allow me to take your coordinates to show the weather forecast{" "}
+          {t('Please allow me to take your coordinates to show the weather forecast')}{" "}
         {happySmile}
       </h2>
       <h2 className="container__title" style={{ textAlign: "center" }}>
-        ...or enter your city here
+        ...{t('or enter your city here')}
       </h2>
       <form className="form" onSubmit={handleSubmit}>
         <TextField
