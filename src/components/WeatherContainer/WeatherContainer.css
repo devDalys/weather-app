@@ -15,6 +15,18 @@
   align-items: center;
   backdrop-filter: blur(10px);
   box-shadow: 4px 4px 100px 0 rgba(34, 60, 80, 0.2);
+  position: relative;
+}
+
+.settings {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  content: "";
+  background: url("../icons/settings.svg") center center/cover no-repeat;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
 
 .container__title {

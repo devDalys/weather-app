@@ -50,6 +50,7 @@ const Home: React.FC = () => {
         .then((value) => {
           if (value.forecasts) {
             setWeather(value);
+            navigation('/')
           } else {
             throw Error("Server is not available");
           }
@@ -61,11 +62,7 @@ const Home: React.FC = () => {
   }, [coordinates, weather]);
 
   if (!coordinates && !weather && !!permission) {
-    return (
-      <div className="wrapper">
-        <StartPage changeState={setWeather} />
-      </div>
-    );
+    navigation("/start");
   } else if (!weather && !error) {
     return (
       <div className="wrapper">
@@ -81,6 +78,10 @@ const Home: React.FC = () => {
           <Route path={"/"} element={<WeatherContainer />} />
           <Route path={"/500"} element={<ServerIsNotAvaible />} />
           <Route path={"*"} element={<PageNotFound />} />
+          <Route
+            path={"/start"}
+            element={<StartPage changeState={setWeather} />}
+          />
         </Routes>
       </div>
     </Context.Provider>
