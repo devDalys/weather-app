@@ -36,6 +36,10 @@ export const getWeatherByCoordinates = async (
         long: coord.longitude,
       },
     })
-    .then((resp) => resp.data)
-    .catch((err) => err);
+    .then((data) => {
+      return data.data;
+    })
+    .catch((err) => {
+      return err;
+    });
 };
