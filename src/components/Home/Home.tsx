@@ -50,41 +50,47 @@ const Home: React.FC = () => {
         .then((value) => {
           if (value.forecasts) {
             setWeather(value);
-            navigation('/')
           } else {
             throw Error("Server is not available");
           }
         })
-        .catch((err) => {
-          setError(err);
-          navigation("/500");
-        });
+          .catch((err) => {
+            setError(err);
+            navigation("/500");
+          });
   }, [coordinates, weather]);
 
-  if (!coordinates && !weather && !!permission) {
-    navigation("/start");
-  } else if (!weather && !error) {
+  React.useEffect(() => {
+    if (!coordinates && !weather) {
+      navigation("/start");
+    } else if (weather) {
+      navigation('/forecast')
+    }
+  }, [coordinates, weather])
+
+  if (!weather && !error && !permission) {
     return (
-      <div className="wrapper">
-        <CircularProgress />
-      </div>
+        <div className="wrapper">
+          <CircularProgress/>
+        </div>
     );
   }
 
+
   return (
-    <Context.Provider value={weather as RootObject}>
-      <div className={cn("wrapper", seasonBackground())}>
-        <Routes>
-          <Route path={"/"} element={<WeatherContainer />} />
-          <Route path={"/500"} element={<ServerIsNotAvaible />} />
-          <Route path={"*"} element={<PageNotFound />} />
-          <Route
-            path={"/start"}
-            element={<StartPage changeState={setWeather} />}
-          />
-        </Routes>
-      </div>
-    </Context.Provider>
+      <Context.Provider value={weather as RootObject}>
+        <div className={cn("wrapper", seasonBackground())}>
+          <Routes>
+            <Route path={"/forecast"} element={<WeatherContainer/>}/>
+            <Route path={"/500"} element={<ServerIsNotAvaible/>}/>
+            <Route path={"*"} element={<PageNotFound/>}/>
+            <Route
+                path={"/start"}
+                element={<StartPage changeState={setWeather}/>}
+            />
+          </Routes>
+        </div>
+      </Context.Provider>
   );
 };
 

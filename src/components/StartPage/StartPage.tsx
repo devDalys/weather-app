@@ -20,7 +20,6 @@ const StartPage: React.FC<Props> = React.memo(({changeState}) => {
         e.preventDefault();
         await getWeatherByCity(input).then((data) => {
             changeState(data);
-            navigation('/')
         }).catch(() => navigation('/500'));
     };
 
