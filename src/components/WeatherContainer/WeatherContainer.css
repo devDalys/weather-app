@@ -20,10 +20,23 @@
 
 .settings {
   position: absolute;
-  top: 20px;
+  top: 41px;
   right: 20px;
   content: "";
   background: url("../icons/settings.svg") center center/cover no-repeat;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.back{
+  position: absolute;
+  top: 41px;
+  left: 20px;
+  content: "";
+  transform: rotateZ(180deg);
+  background: url("../icons/arrowback.svg") center center / cover no-repeat;
+  border-radius: 50%;
   width: 30px;
   height: 30px;
   cursor: pointer;

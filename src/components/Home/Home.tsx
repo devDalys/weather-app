@@ -74,7 +74,6 @@ const Home: React.FC = React.memo(() => {
     );
   }
 
-
   return (
       <Context.Provider value={weather as RootObject}>
         <div className={cn("wrapper", seasonBackground())}>

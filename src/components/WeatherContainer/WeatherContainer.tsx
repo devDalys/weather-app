@@ -6,16 +6,19 @@ import { farToCelc } from "../../utils";
 import Forecast from "../Forecast";
 import { format } from "date-fns";
 import { useTranslation } from "react-i18next";
-import { settings } from "../icons";
+import {useNavigate} from "react-router-dom";
+import {settings} from "../icons";
 
 const WeatherContainer: React.FC = () => {
   const context = React.useContext(Context) as RootObject;
   const { t } = useTranslation("Forecast");
   const [isSettings, setSettings] = React.useState(false);
+  const navigator = useNavigate();
 
   return (
     <div className="container">
       <div className="settings" onClick={() => setSettings(!isSettings)} />
+      <div className="back" onClick = {() => isSettings? setSettings(!settings) : navigator('/start')}/>
       {!isSettings && (
         <>
           <h2 className="container__title">
