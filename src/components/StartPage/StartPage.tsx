@@ -2,7 +2,7 @@ import * as React from "react";
 import { arrowNext, happySmile } from "../icons";
 import "../WeatherContainer/WeatherContainer.css";
 import TextField from "@mui/material/TextField";
-import { Button } from "@mui/material";
+import {Button, CircularProgress} from "@mui/material";
 import "./StartPage.css";
 import { getWeatherByCity } from "../../axios";
 import { RootObject } from "../../types/types";
@@ -16,16 +16,23 @@ interface Props {
 const StartPage: React.FC<Props> = React.memo(({ changeState }) => {
   const [input, setInput] = React.useState<any>("");
   const navigation = useNavigate();
+  const [isLoading,setIsLoading] = React.useState(false);
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
     await getWeatherByCity(input)
       .then((data) => {
         changeState(data);
+        setIsLoading(false)
       })
       .catch(() => navigation("/500"));
   };
 
   const { t } = useTranslation("Translation");
+
+  if(isLoading){
+      return <CircularProgress />
+  }
 
   return (
     <div className="container">

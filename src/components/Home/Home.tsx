@@ -30,27 +30,31 @@ const Home: React.FC = React.memo(() => {
 
   const navigation = useNavigate();
 
+
   React.useEffect(() => {
-    !permission && navigator.permissions
+    !permission &&
+      navigator.permissions
         .query({ name: "geolocation" })
         .then((data) => setPermissions(data));
   }, [permission]);
 
   React.useLayoutEffect(() => {
-    navigator.geolocation.getCurrentPosition(onSuccess, onError, {
+    !coordinates && navigator.geolocation.getCurrentPosition(onSuccess, onError, {
       enableHighAccuracy: true,
     });
   }, []);
 
-  const { isLoading, data:WeatherResponse } = useQuery(
-      "query-RootObject",
-      () => {
-        return getWeatherByCoordinates(coordinates as Coordinates);
-      },
-      {
-        enabled: !weather && !!coordinates,
-      }
+  const { isLoading, data: WeatherResponse } = useQuery(
+    "query-RootObject",
+    () => {
+      return getWeatherByCoordinates(coordinates as Coordinates);
+    },
+    {
+      enabled: !weather && !!coordinates,
+
+    }
   );
+
 
   React.useEffect(() => {
     if (WeatherResponse) {
@@ -68,27 +72,27 @@ const Home: React.FC = React.memo(() => {
 
   if ((!weather && !permission) || isLoading) {
     return (
-        <div className="wrapper">
-          <CircularProgress />
-        </div>
+      <div className="wrapper">
+        <CircularProgress />
+      </div>
     );
   }
 
   return (
-      <Context.Provider value={weather as RootObject}>
-        <div className={cn("wrapper", seasonBackground())}>
-          <Routes>
-            <Route path={"/forecast"} element={<WeatherContainer />} />
-            <Route path={"/500"} element={<ServerIsNotAvaible />} />
-            <Route path={"*"} element={<PageNotFound />} />
-            <Route
-                path={"/start"}
-                element={<StartPage changeState={setWeather} />}
-            />
-          </Routes>
-        </div>
-      </Context.Provider>
+    <Context.Provider value={weather as RootObject}>
+      <div className={cn("wrapper", seasonBackground())}>
+        <Routes>
+          <Route path={"/forecast"} element={<WeatherContainer />} />
+          <Route path={"/500"} element={<ServerIsNotAvaible />} />
+          <Route path={"*"} element={<PageNotFound />} />
+          <Route
+            path={"/start"}
+            element={<StartPage changeState={setWeather} />}
+          />
+        </Routes>
+      </div>
+    </Context.Provider>
   );
-})
+});
 
 export default Home;
