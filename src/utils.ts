@@ -1,6 +1,6 @@
-import { Coordinates, JSONCities, Seasons } from "./types/types";
-import { format } from "date-fns";
-import { Clouds, Rain, Snow, Sunny } from "./components/icons";
+import {Coordinates, JSONCities, Seasons} from "./types/types";
+import {format} from "date-fns";
+import {Clouds, Rain, Snow, Sunny} from "./components/icons";
 
 const currentMonth = new Date().getMonth();
 
@@ -34,8 +34,8 @@ export const isExistInStorage = (city: string) => {
   const cities: Array<JSONCities> = JSON.parse(
     localStorage.getItem("cities") as string
   );
-  if(!cities){
-    return false
+  if (!cities) {
+    return false;
   }
   return cities.some((item) => item.name === city);
 };

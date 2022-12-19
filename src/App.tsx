@@ -1,10 +1,9 @@
-import { Suspense } from "react";
+import * as React from "react";
+import {Suspense} from "react";
 import "./App.css";
 import Home from "./components/Home";
-import { CircularProgress } from "@mui/material";
-import * as React from "react";
-import { BrowserRouter } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from "react-query";
+import {BrowserRouter} from "react-router-dom";
+import {QueryClient, QueryClientProvider} from "react-query";
 
 function App() {
   const queryClient = new QueryClient();

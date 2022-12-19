@@ -1,14 +1,12 @@
 import * as React from "react";
 import "./WeatherContainer.css";
-import { RootObject } from "../../types/types";
-import { Context } from "../../context/context";
-import { farToCelc, isExistInStorage, saveCityStorage } from "../../utils";
+import {RootObject} from "../../types/types";
+import {Context} from "../../context/context";
+import {farToCelc, isExistInStorage, saveCityStorage} from "../../utils";
 import Forecast from "../Forecast";
-import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
-import { settings } from "../icons";
-import favorite from "../icons/favorite.svg";
-import remove from "../icons/remove.svg";
+import {useTranslation} from "react-i18next";
+import {useNavigate} from "react-router-dom";
+import {settings} from "../icons";
 import Favorite from "../Favorite/Favorite";
 
 const WeatherContainer: React.FC = () => {

@@ -1,13 +1,13 @@
 import * as React from "react";
-import { arrowNext, happySmile } from "../icons";
+import {arrowNext, happySmile} from "../icons";
 import "../WeatherContainer/WeatherContainer.css";
 import TextField from "@mui/material/TextField";
-import { Button, CircularProgress } from "@mui/material";
+import {Button, CircularProgress} from "@mui/material";
 import "./StartPage.css";
-import { getWeatherByCity } from "../../axios";
-import { RootObject } from "../../types/types";
-import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import {getWeatherByCity} from "../../axios";
+import {RootObject} from "../../types/types";
+import {useTranslation} from "react-i18next";
+import {useNavigate} from "react-router-dom";
 
 interface Props {
   changeState: React.Dispatch<React.SetStateAction<RootObject | undefined>>;

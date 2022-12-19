@@ -1,5 +1,4 @@
 import * as React from "react";
-import { RootObject } from "../../types/types";
 import remove from "../icons/remove.svg";
 import favorite from "../icons/favorite.svg";
 

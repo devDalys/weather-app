@@ -1,7 +1,7 @@
 import * as React from "react";
 import "../WeatherContainer/WeatherContainer.css";
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import {useTranslation} from "react-i18next";
+import {Link} from "react-router-dom";
 
 const PageNotFound: React.FC = () => {
   const { t } = useTranslation("Translation");

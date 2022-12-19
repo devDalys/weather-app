@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Forecast as ForeCastProps } from "../../types/types";
-import { farToCelc, getForecastDays, getForecastIcon } from "../../utils";
+import {Forecast as ForeCastProps} from "../../types/types";
+import {farToCelc, getForecastDays, getForecastIcon} from "../../utils";
 import "./Forecast.css";
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 
 interface Props {
   forecast: ForeCastProps[];

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Position, RootObject } from "../types/types";
+import {Position, RootObject} from "../types/types";
 
 const weatherApiUrl = "https://yahoo-weather5.p.rapidapi.com/weather";
 const headers = {

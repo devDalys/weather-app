@@ -35,9 +35,10 @@
   }
 }
 
-@media screen and  (max-width: 700px){
-  .wrapper{
+@media screen and (max-width: 700px) {
+  .wrapper {
     height: auto;
     align-items: flex-start;
+
   }
 }

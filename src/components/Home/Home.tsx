@@ -1,19 +1,19 @@
 import * as React from "react";
-import { seasonBackground } from "../../utils";
+import {seasonBackground} from "../../utils";
 import "./Home.css";
 import cn from "classnames";
 import WeatherContainer from "../WeatherContainer";
-import { getWeatherByCoordinates } from "../../axios";
-import { Coordinates, RootObject } from "../../types/types";
-import { Context } from "../../context/context";
+import {getWeatherByCoordinates} from "../../axios";
+import {Coordinates, RootObject} from "../../types/types";
+import {Context} from "../../context/context";
 import StartPage from "../StartPage";
-import { CircularProgress } from "@mui/material";
+import {CircularProgress} from "@mui/material";
 import "../../i18n";
-import { Route, Routes } from "react-router-dom";
+import {Route, Routes, useNavigate} from "react-router-dom";
 import PageNotFound from "../PageNotFound";
-import { useNavigate } from "react-router-dom";
 import ServerIsNotAvaible from "../ServerIsNotAvaible";
-import { useQuery } from "react-query";
+import {useQuery} from "react-query";
+
 const Home: React.FC = React.memo(() => {
   const [weather, setWeather] = React.useState<RootObject>();
   const [coordinates, setCoordinates] = React.useState<Coordinates>();
