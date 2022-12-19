@@ -10,7 +10,7 @@ interface Props {
 const Favorite: React.FC<Props> = React.memo(({ isFavorite }) => {
   return (
     <>
-      {isFavorite ? (
+      {!isFavorite ? (
         <>
           Сохранить в избранное <img src={remove} />
         </>

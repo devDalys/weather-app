@@ -34,9 +34,10 @@ export const isExistInStorage = (city: string) => {
   const cities: Array<JSONCities> = JSON.parse(
     localStorage.getItem("cities") as string
   );
-  if (!cities.some((item) => item.name === city)) {
-    return true;
+  if(!cities){
+    return false
   }
+  return cities.some((item) => item.name === city);
 };
 
 export const farToCelc = (far: number): number => {

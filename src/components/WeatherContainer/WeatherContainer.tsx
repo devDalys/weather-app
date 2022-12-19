@@ -19,6 +19,7 @@ const WeatherContainer: React.FC = () => {
   const [isFavorite, setIsFavorite] = React.useState(
     isExistInStorage(context.location.city)
   );
+
   const changeFavorite = () => {
     saveCityStorage(context.location.city, {
       latitude: context.location.lat,
