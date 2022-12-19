@@ -2,18 +2,28 @@ import * as React from "react";
 import "./WeatherContainer.css";
 import { RootObject } from "../../types/types";
 import { Context } from "../../context/context";
-import { farToCelc } from "../../utils";
+import { farToCelc, isExistInStorage, saveCityStorage } from "../../utils";
 import Forecast from "../Forecast";
-import { format } from "date-fns";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { settings } from "../icons";
+import favorite from "../icons/favorite.svg";
+import remove from "../icons/remove.svg";
+import Favorite from "../Favorite/Favorite";
 
 const WeatherContainer: React.FC = () => {
   const context = React.useContext(Context) as RootObject;
   const { t } = useTranslation("Forecast");
   const [isSettings, setSettings] = React.useState(false);
   const navigator = useNavigate();
+  const [isFavorite, setIsFavorite] = React.useState(isExistInStorage(context.location.city));
+  const changeFavorite = () => {
+      saveCityStorage(context.location.city, {
+          latitude: context.location.lat,
+          longitude: context.location.long,
+      })
+      setIsFavorite(isExistInStorage(context.location.city))
+  }
 
   return (
     <div className="container">
@@ -29,9 +39,13 @@ const WeatherContainer: React.FC = () => {
           <h2 className="container__title">
             {context.location.city} / {context.location.country}
           </h2>
-          <h3 className="container__region">
-            {context.location.region}
-            <br /> {format(new Date(), "dd.MM.yyy HH:mm")}
+          <h3
+            className="container__favorite"
+            onClick={() =>
+                changeFavorite()
+            }
+          >
+           <Favorite isFavorite={isFavorite} />
           </h3>
           <div className="container__temp">
             <div className="container__temp-value">

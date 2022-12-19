@@ -6,6 +6,10 @@
   border-radius: 10px;
 }
 
+.form input{
+  font-weight: 600;
+  color: #546269;
+}
 :root .MuiInputLabel-root.Mui-focused,
 :root .MuiInputLabel-root {
   color: #546269;

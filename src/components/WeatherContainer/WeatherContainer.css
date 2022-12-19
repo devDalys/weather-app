@@ -50,10 +50,28 @@
   font-weight: 600;
 }
 
-.container__region {
+.container__favorite {
   color: #546269;
   font-size: 20px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: 5px 15px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.container__favorite:hover{
+  background: rgba(255, 255, 255, 0.6);
+  transition: all 0.5s;
+
+}
+.container__favorite img{
+  width: 22px;
+  height: 22px;
+  margin-left: 10px;
+
 }
 
 .container__temp {

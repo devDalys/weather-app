@@ -1,4 +1,4 @@
-import { Seasons } from "./types/types";
+import { Coordinates, JSONCities, Seasons } from "./types/types";
 import { format } from "date-fns";
 import { Clouds, Rain, Snow, Sunny } from "./components/icons";
 
@@ -16,9 +16,30 @@ export const seasonBackground = (): Seasons => {
   }
 };
 
-export const saveCityStorage = (city: string) => {
+export const saveCityStorage = (city: string, coord: Coordinates) => {
+  let cities: Array<JSONCities> = JSON.parse(
+    localStorage.getItem("cities") as string
+  );
+  if (cities && !cities.some((item) => item.name === city)) {
+    cities.push({ name: city, coords: coord });
+  }
+  else if(!cities){
+    cities = [{ name: city, coords: coord }]
+  }
+  else{
+    cities = cities.filter(item => item.name !== city)
+  }
+  localStorage.setItem("cities", JSON.stringify(cities));
+};
 
-}
+export const isExistInStorage = (city: string) => {
+  const cities: Array<JSONCities> = JSON.parse(
+    localStorage.getItem("cities") as string
+  );
+  if (!cities.some((item) => item.name === city)) {
+    return true;
+  }
+};
 
 export const farToCelc = (far: number): number => {
   return Math.round((far - 32) / 1.8);

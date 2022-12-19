@@ -30,7 +30,6 @@ const Home: React.FC = React.memo(() => {
 
   const navigation = useNavigate();
 
-
   React.useEffect(() => {
     !permission &&
       navigator.permissions
@@ -39,9 +38,10 @@ const Home: React.FC = React.memo(() => {
   }, [permission]);
 
   React.useLayoutEffect(() => {
-    !coordinates && navigator.geolocation.getCurrentPosition(onSuccess, onError, {
-      enableHighAccuracy: true,
-    });
+    !coordinates &&
+      navigator.geolocation.getCurrentPosition(onSuccess, onError, {
+        enableHighAccuracy: true,
+      });
   }, []);
 
   const { isLoading, data: WeatherResponse } = useQuery(
@@ -51,10 +51,8 @@ const Home: React.FC = React.memo(() => {
     },
     {
       enabled: !weather && !!coordinates,
-
     }
   );
-
 
   React.useEffect(() => {
     if (WeatherResponse) {
