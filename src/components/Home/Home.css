@@ -34,3 +34,9 @@
     opacity: 1;
   }
 }
+
+@media screen and (max-width: 700px) {
+  .wrapper {
+    align-items: flex-start;
+  }
+}
