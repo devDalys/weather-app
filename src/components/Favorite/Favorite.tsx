@@ -3,11 +3,11 @@ import { RootObject } from "../../types/types";
 import remove from "../icons/remove.svg";
 import favorite from "../icons/favorite.svg";
 
-interface Props{
-    isFavorite?: boolean
+interface Props {
+  isFavorite?: boolean;
 }
 
-const Favorite: React.FC<Props> = React.memo(({isFavorite}) => {
+const Favorite: React.FC<Props> = React.memo(({ isFavorite }) => {
   return (
     <>
       {isFavorite ? (

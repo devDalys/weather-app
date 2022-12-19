@@ -5,9 +5,9 @@ export interface Position {
   longitude: number;
 }
 
-export interface JSONCities{
-  coords: Position,
-  name: string
+export interface JSONCities {
+  coords: Position;
+  name: string;
 }
 
 export enum Seasons {

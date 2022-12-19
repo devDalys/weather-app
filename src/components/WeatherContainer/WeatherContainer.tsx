@@ -16,14 +16,16 @@ const WeatherContainer: React.FC = () => {
   const { t } = useTranslation("Forecast");
   const [isSettings, setSettings] = React.useState(false);
   const navigator = useNavigate();
-  const [isFavorite, setIsFavorite] = React.useState(isExistInStorage(context.location.city));
+  const [isFavorite, setIsFavorite] = React.useState(
+    isExistInStorage(context.location.city)
+  );
   const changeFavorite = () => {
-      saveCityStorage(context.location.city, {
-          latitude: context.location.lat,
-          longitude: context.location.long,
-      })
-      setIsFavorite(isExistInStorage(context.location.city))
-  }
+    saveCityStorage(context.location.city, {
+      latitude: context.location.lat,
+      longitude: context.location.long,
+    });
+    setIsFavorite(isExistInStorage(context.location.city));
+  };
 
   return (
     <div className="container">
@@ -39,13 +41,8 @@ const WeatherContainer: React.FC = () => {
           <h2 className="container__title">
             {context.location.city} / {context.location.country}
           </h2>
-          <h3
-            className="container__favorite"
-            onClick={() =>
-                changeFavorite()
-            }
-          >
-           <Favorite isFavorite={isFavorite} />
+          <h3 className="container__favorite" onClick={() => changeFavorite()}>
+            <Favorite isFavorite={isFavorite} />
           </h3>
           <div className="container__temp">
             <div className="container__temp-value">

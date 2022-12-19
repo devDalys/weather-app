@@ -22,12 +22,10 @@ export const saveCityStorage = (city: string, coord: Coordinates) => {
   );
   if (cities && !cities.some((item) => item.name === city)) {
     cities.push({ name: city, coords: coord });
-  }
-  else if(!cities){
-    cities = [{ name: city, coords: coord }]
-  }
-  else{
-    cities = cities.filter(item => item.name !== city)
+  } else if (!cities) {
+    cities = [{ name: city, coords: coord }];
+  } else {
+    cities = cities.filter((item) => item.name !== city);
   }
   localStorage.setItem("cities", JSON.stringify(cities));
 };
