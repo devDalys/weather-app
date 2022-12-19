@@ -79,7 +79,7 @@ export const settings = (
 );
 
 export const happySmile = (
-  <svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+  <svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" width={'250px'} height={'250px'}>
     <g id="color">
       <path
         fill="#fcea2b"
