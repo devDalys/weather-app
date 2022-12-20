@@ -1,0 +1,23 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 120%;
+  padding: 15px 0 0 0;
+}
+
+.button {
+  cursor: pointer;
+  padding: 0;
+
+  backdrop-filter: none;
+}
+
+.button svg {
+  width: 35px;
+  height: 35px;
+}
+
+.button:hover {
+  backdrop-filter: blur(20px);
+}

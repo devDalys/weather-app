@@ -1,44 +1,20 @@
 .container {
   width: 100%;
   max-width: 375px;
-  height: min-content;
+  height: 660px;
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.4) 0%,
     rgba(255, 255, 255, 0.1) 100%
   );
   border-radius: 30px;
-  padding: 40px;
+  padding: 0 40px 40px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   backdrop-filter: blur(10px);
   box-shadow: 4px 4px 100px 0 rgba(34, 60, 80, 0.2);
   position: relative;
-}
-
-.settings {
-  position: absolute;
-  top: 41px;
-  right: 20px;
-  content: "";
-  background: url("../icons/settings.svg") center center/cover no-repeat;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-}
-
-.back {
-  position: absolute;
-  top: 41px;
-  left: 20px;
-  content: "";
-  transform: rotateZ(180deg);
-  background: url("../icons/arrowback.svg") center center / cover no-repeat;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
 }
 
 .container__title {
@@ -124,15 +100,15 @@
 
 @media screen and (max-width: 700px) {
   .container {
-  border-radius: 0;
+    border-radius: 0;
   }
   .settings,
-  .back{
+  .back {
     width: 25px;
     height: 25px;
     top: 43px;
   }
-  .container__title{
+  .container__title {
     font-size: 26px;
   }
 }

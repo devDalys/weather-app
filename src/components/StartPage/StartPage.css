@@ -6,6 +6,34 @@
   border-radius: 10px;
 }
 
+.start__page {
+  width: 100%;
+  max-width: 375px;
+  height: min-content;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(50px);
+  box-shadow: 4px 4px 100px 0 rgba(34, 60, 80, 0.2);
+  padding: 15px;
+}
+.start__page button {
+  transform: rotateY(180deg);
+}
+.start__page_title {
+  color: #546269;
+  font-size: 26px;
+  margin-bottom: 12px;
+  text-align: center;
+  font-weight: 600;
+}
+
 .form input {
   font-weight: 600;
   color: #546269;

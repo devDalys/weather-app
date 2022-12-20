@@ -1,4 +1,9 @@
-export interface context {}
+export enum Paths {
+  Start = "/start",
+  Forecast = "/forecast",
+  Invalid = "*",
+  Error = "/500",
+}
 
 export interface Position {
   latitude: number;

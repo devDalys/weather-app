@@ -1,6 +1,6 @@
-import {Coordinates, JSONCities, Seasons} from "./types/types";
-import {format} from "date-fns";
-import {Clouds, Rain, Snow, Sunny} from "./components/icons";
+import { Coordinates, JSONCities, Seasons } from "./types/types";
+import { format } from "date-fns";
+import { Clouds, Rain, Snow, Sunny } from "./components/icons";
 
 const currentMonth = new Date().getMonth();
 

@@ -1,13 +1,12 @@
 import * as React from "react";
-import {arrowNext, happySmile} from "../icons";
-import "../WeatherContainer/WeatherContainer.css";
+import { goBack, happySmile } from "../icons";
 import TextField from "@mui/material/TextField";
-import {Button, CircularProgress} from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import "./StartPage.css";
-import {getWeatherByCity} from "../../axios";
-import {RootObject} from "../../types/types";
-import {useTranslation} from "react-i18next";
-import {useNavigate} from "react-router-dom";
+import { getWeatherByCity } from "../../axios";
+import { Paths, RootObject } from "../../types/types";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   changeState: React.Dispatch<React.SetStateAction<RootObject | undefined>>;
@@ -25,7 +24,7 @@ const StartPage: React.FC<Props> = React.memo(({ changeState }) => {
         changeState(data);
         setIsLoading(false);
       })
-      .catch(() => navigation("/500"));
+      .catch(() => navigation(Paths.Error));
   };
 
   const { t } = useTranslation("Translation");
@@ -35,14 +34,14 @@ const StartPage: React.FC<Props> = React.memo(({ changeState }) => {
   }
 
   return (
-    <div className="container">
-      <h2 className="container__title" style={{ textAlign: "center" }}>
+    <div className="start__page">
+      <h2 className="start__page_title" style={{ textAlign: "center" }}>
         {t(
           "Please allow me to take your coordinates to show the weather forecast"
         )}{" "}
         {happySmile}
       </h2>
-      <h2 className="container__title" style={{ textAlign: "center" }}>
+      <h2 className="start__page_title" style={{ textAlign: "center" }}>
         ...{t("or enter your city here")}
       </h2>
       <form className="form" onSubmit={handleSubmit}>
@@ -54,7 +53,7 @@ const StartPage: React.FC<Props> = React.memo(({ changeState }) => {
           variant="standard"
         />
         <Button type={"submit"} variant="text">
-          {arrowNext}
+          {goBack}
         </Button>
       </form>
     </div>

@@ -1,13 +1,14 @@
 import * as React from "react";
 import "./WeatherContainer.css";
-import {RootObject} from "../../types/types";
-import {Context} from "../../context/context";
-import {farToCelc, isExistInStorage, saveCityStorage} from "../../utils";
+import { RootObject, Paths } from "../../types/types";
+import { Context } from "../../context/context";
+import { farToCelc, isExistInStorage, saveCityStorage } from "../../utils";
 import Forecast from "../Forecast";
-import {useTranslation} from "react-i18next";
-import {useNavigate} from "react-router-dom";
-import {settings} from "../icons";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { settings } from "../icons";
 import Favorite from "../Favorite/Favorite";
+import Navbar from "../Navbar";
 
 const WeatherContainer: React.FC = () => {
   const context = React.useContext(Context) as RootObject;
@@ -28,13 +29,7 @@ const WeatherContainer: React.FC = () => {
 
   return (
     <div className="container">
-      <div className="settings" onClick={() => setSettings(!isSettings)} />
-      <div
-        className="back"
-        onClick={() =>
-          isSettings ? setSettings(!settings) : navigator("/start")
-        }
-      />
+      <Navbar setSettingsState={setSettings} settingState={isSettings} />
       {!isSettings && (
         <>
           <h2 className="container__title">
