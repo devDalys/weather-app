@@ -35,7 +35,6 @@
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.3);
   cursor: pointer;
-  transition: all 0.5s;
 }
 .container__favorite:hover {
   background: rgba(255, 255, 255, 0.6);

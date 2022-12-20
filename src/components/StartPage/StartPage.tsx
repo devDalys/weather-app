@@ -16,6 +16,7 @@ const StartPage: React.FC<Props> = React.memo(({ changeState }) => {
   const [input, setInput] = React.useState<any>("");
   const navigation = useNavigate();
   const [isLoading, setIsLoading] = React.useState(false);
+  console.log('я вмонтировался')
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
