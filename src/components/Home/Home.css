@@ -6,7 +6,7 @@
   justify-content: center;
 }
 
-.wrapper__loader{
+.wrapper__loader {
   width: 100vw;
   height: 100vh;
   display: flex;
