@@ -18,6 +18,7 @@ const Home: React.FC = React.memo(() => {
   const [weather, setWeather] = React.useState<RootObject>();
   const [coordinates, setCoordinates] = React.useState<Coordinates>();
   const [permission, setPermissions] = React.useState<PermissionStatus>();
+  const [handleLoading, setLoading] = React.useState(true);
   const [permissionError, setPermissionError] =
     React.useState<GeolocationPositionError>();
   const onSuccess = (Props: GeolocationPosition) => {
@@ -43,7 +44,7 @@ const Home: React.FC = React.memo(() => {
       navigator.geolocation.getCurrentPosition(onSuccess, onError, {
         enableHighAccuracy: true,
       });
-  }, []);
+  }, [coordinates]);
   const { isLoading, data: WeatherResponse } = useQuery(
     "query-RootObject",
     () => {
@@ -62,26 +63,31 @@ const Home: React.FC = React.memo(() => {
 
   React.useEffect(() => {
     if (
-      (!weather && !coordinates && !permission) ||
-      (permissionError && !weather)
+      (!permission && !weather && !coordinates) ||
+      isLoading ||
+      (!weather && permission?.state === "granted")
     ) {
+      setLoading(true);
+    } else if (
+      !weather &&
+      (permissionError || permission?.state === "prompt")
+    ) {
+      setLoading(false);
       navigation(Paths.Start);
     } else if (weather?.forecasts) {
+      setLoading(false);
       navigation(Paths.Forecast);
     }
-  }, [coordinates, weather, permission, permissionError]);
-
-  if (
-    (!weather && !permission && !coordinates) ||
-    isLoading ||
-    (!weather && permission?.state === "granted")
-  ) {
+  }, [permission, weather, coordinates, permissionError]);
+  console.log("Render");
+  if (handleLoading) {
     return (
-      <div className="wrapper">
-        <CircularProgress />
+      <div className="wrapper__loader">
+        <CircularProgress className="loader" />
       </div>
     );
   }
+
   return (
     <Context.Provider value={weather as RootObject}>
       <div className={cn("wrapper", seasonBackground())}>
