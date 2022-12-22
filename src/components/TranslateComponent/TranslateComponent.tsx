@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import { getTranslate } from "../../axios";
 import css from "./TranslateComponent.module.css";
 import { Skeleton } from "@mui/material";
+import i18n from "i18next";
 
 interface Props {
   text: string;
@@ -12,11 +13,11 @@ const TranslateComponent: React.FC<Props> = ({ text }) => {
   const [translate, setTranslate] = React.useState("");
   const [isRussian, setIsRussian] = React.useState<boolean>();
   React.useEffect(() => {
-    window.navigator.language === 'ru-RU' ? setIsRussian(true) : setIsRussian(false);
-    if(!isRussian){
-      setTranslate(text)
+    i18n.language === "ru-RU" ? setIsRussian(true) : setIsRussian(false);
+    if (!isRussian) {
+      setTranslate(text);
     }
-  })
+  }, [isRussian]);
 
   const { isLoading } = useQuery(
     "query-getCityTranslate",
@@ -27,7 +28,7 @@ const TranslateComponent: React.FC<Props> = ({ text }) => {
         })
         .catch((err) => setTranslate(text));
     },
-    { enabled: !translate && !isRussian}
+    { enabled: !translate && !isRussian }
   );
 
   if (!translate || isLoading) {
