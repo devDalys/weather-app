@@ -35,6 +35,7 @@
   padding: 5px 15px;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.3);
+  width: 100%;
   cursor: pointer;
 }
 

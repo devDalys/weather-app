@@ -5,6 +5,12 @@ export enum Paths {
   Error = "/500",
 }
 
+export interface translateResponse {
+  ok: boolean;
+  text_lang: string;
+  translated_text: string;
+}
+
 export interface Position {
   latitude: number;
   longitude: number;

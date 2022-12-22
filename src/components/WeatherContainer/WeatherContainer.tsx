@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { settings } from "../icons";
 import Favorite from "../Favorite/Favorite";
 import Navbar from "../Navbar";
+import TranslateComponent from "../TranslateComponent";
 
 const WeatherContainer: React.FC = () => {
   const context = React.useContext(Context) as RootObject;
@@ -33,7 +34,9 @@ const WeatherContainer: React.FC = () => {
       {!isSettings && (
         <>
           <h2 className="container__title">
-            {context.location.city} / {context.location.country}
+            <TranslateComponent
+              text={`${context.location.city} / ${context.location.country}`}
+            />
           </h2>
           <h3 className="container__favorite" onClick={() => changeFavorite()}>
             <Favorite isFavorite={isFavorite} />

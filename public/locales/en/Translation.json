@@ -4,5 +4,7 @@
   "Not Available": "Server is not available. Come back later :(",
   "Try again": "Try again",
   "Please allow me to take your coordinates to show the weather forecast": "Please allow me to take your coordinates to show the weather forecast",
-  "or enter your city here": "or enter your city here"
+  "or enter your city here": "or enter your city here",
+  "inFavorite": "My Favorites",
+  "noFavorites": "Add to Favorites"
 }

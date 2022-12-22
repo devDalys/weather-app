@@ -1,10 +1,37 @@
 import axios from "axios";
-import { Position, RootObject } from "../types/types";
+import { Position, RootObject, translateResponse } from "../types/types";
 
 const weatherApiUrl = "https://yahoo-weather5.p.rapidapi.com/weather";
-const headers = {
+const translateApiUrl = "https://translo.p.rapidapi.com/api/v3/translate";
+const weatherHeaders = {
   "X-RapidAPI-Key": "f927d541afmsh70353b988d0c498p1ba690jsn2ddaf17ac057",
   "X-RapidAPI-Host": "yahoo-weather5.p.rapidapi.com",
+};
+
+const translateHeaders = {
+  "X-RapidAPI-Key": "f927d541afmsh70353b988d0c498p1ba690jsn2ddaf17ac057",
+  "X-RapidAPI-Host": "translo.p.rapidapi.com",
+  "content-type": "application/x-www-form-urlencoded",
+};
+
+export const getTranslate = async (
+  text: string
+): Promise<translateResponse> => {
+  return await axios
+    .request({
+      url: translateApiUrl,
+      method: "POST",
+      headers: translateHeaders,
+      data: {
+        from: "en",
+        to: "ru",
+        text,
+      },
+    })
+    .then((data) => {
+      return data.data;
+    })
+    .catch((err) => err);
 };
 
 export const getWeatherByCity = async (
@@ -12,7 +39,7 @@ export const getWeatherByCity = async (
 ): Promise<RootObject> => {
   return axios
     .get(weatherApiUrl, {
-      headers: headers,
+      headers: weatherHeaders,
       params: {
         location: location,
       },
@@ -30,7 +57,7 @@ export const getWeatherByCoordinates = async (
 ): Promise<RootObject> => {
   return await axios
     .get(weatherApiUrl, {
-      headers: headers,
+      headers: weatherHeaders,
       params: {
         lat: coord.latitude,
         long: coord.longitude,
