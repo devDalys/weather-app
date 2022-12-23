@@ -45,7 +45,11 @@ const Home: React.FC = React.memo(() => {
         enableHighAccuracy: true,
       });
   }, [coordinates]);
-  const { isLoading, data: WeatherResponse } = useQuery(
+  const {
+    isLoading,
+    data: WeatherResponse,
+    error,
+  } = useQuery(
     "query-RootObject",
     () => {
       return getWeatherByCoordinates(coordinates as Coordinates);
@@ -77,9 +81,11 @@ const Home: React.FC = React.memo(() => {
     } else if (weather?.forecasts) {
       setLoading(false);
       navigation(Paths.Forecast);
+    } else if (error) {
+      navigation(Paths.Error);
     }
   }, [permission, weather, coordinates, permissionError]);
-  console.log("Render");
+
   if (handleLoading) {
     return (
       <div className="wrapper__loader">

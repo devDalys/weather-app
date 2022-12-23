@@ -40,6 +40,13 @@ export const isExistInStorage = (city: string) => {
   return cities.some((item) => item.name === city);
 };
 
+export const getCitiesFromStorage = () => {
+  const cities: Array<JSONCities> = JSON.parse(
+    localStorage.getItem("cities") as string
+  );
+  return cities;
+};
+
 export const farToCelc = (far: number): number => {
   return Math.round((far - 32) / 1.8);
 };
