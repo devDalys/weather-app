@@ -7,7 +7,7 @@ import { getWeatherByCity } from "../../axios";
 import { Paths, RootObject } from "../../types/types";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { getCitiesFromStorage, saveCityStorage } from "../../utils";
+import {getCitiesFromStorage, isExistInStorage, saveCityStorage} from "../../utils";
 import SavedCities from "../SavedCities";
 
 interface Props {
@@ -32,7 +32,7 @@ const StartPage: React.FC<Props> = React.memo(({ changeState }) => {
     setIsLoading(true);
     await getWeatherByCity(city)
       .then((data) => {
-        saveCityStorage(data.location.city, {
+        !isExistInStorage(data.location.city) && saveCityStorage(data.location.city, {
           latitude: data.location.lat,
           longitude: data.location.long,
         });
@@ -44,7 +44,7 @@ const StartPage: React.FC<Props> = React.memo(({ changeState }) => {
 
   const cities = React.useMemo(() => {
     return getCitiesFromStorage();
-  }, []);
+  }, [isLoading]);
 
   const { t } = useTranslation("Translation");
 
