@@ -9,7 +9,7 @@ interface Props {
   text: string;
 }
 
-const TranslateComponent: React.FC<Props> = ({ text }) => {
+const TranslateComponent: React.FC<Props> = React.memo(({ text }) => {
   const [translate, setTranslate] = React.useState("");
   const [isRussian, setIsRussian] = React.useState<boolean>();
   React.useEffect(() => {
@@ -20,15 +20,15 @@ const TranslateComponent: React.FC<Props> = ({ text }) => {
   }, [isRussian]);
 
   const { isLoading } = useQuery(
-    "query-getCityTranslate",
-    () => {
-      getTranslate(text)
-        .then((res) => {
-          setTranslate(res.translated_text);
-        })
-        .catch((err) => setTranslate(text));
-    },
-    { enabled: !translate && !isRussian }
+      "query-getCityTranslate",
+      () => {
+        getTranslate(text)
+            .then((res) => {
+              setTranslate(res.translated_text);
+            })
+            .catch((err) => setTranslate(text));
+      },
+      { enabled: !translate && !isRussian }
   );
 
   if (!translate || isLoading) {
@@ -36,6 +36,6 @@ const TranslateComponent: React.FC<Props> = ({ text }) => {
   }
 
   return <div className={css.translated__text}>{translate}</div>;
-};
+})
 
 export default TranslateComponent;
