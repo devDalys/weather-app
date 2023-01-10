@@ -9,8 +9,10 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import {
   getCitiesFromStorage,
+  getDataFromSession,
   isExistInStorage,
   saveCityStorage,
+  saveSession,
 } from "../../utils";
 import SavedCities from "../SavedCities";
 
@@ -34,17 +36,24 @@ const StartPage: React.FC<Props> = React.memo(({ changeState }) => {
   };
   const getWeatherByName = async (city: string) => {
     setIsLoading(true);
-    await getWeatherByCity(city)
-      .then((data) => {
-        !isExistInStorage(data.location.city) &&
-          saveCityStorage(data.location.city, {
-            latitude: data.location.lat,
-            longitude: data.location.long,
-          });
-        changeState(data);
-        setIsLoading(false);
-      })
-      .catch(() => navigation(Paths.Error));
+    const sessionData = getDataFromSession(city);
+    if (sessionData) {
+      setIsLoading(false);
+      changeState(sessionData);
+    } else {
+      await getWeatherByCity(city)
+        .then((data) => {
+          !isExistInStorage(data.location.city) &&
+            saveCityStorage(data.location.city, {
+              latitude: data.location.lat,
+              longitude: data.location.long,
+            });
+          changeState(data);
+          saveSession(city, data);
+          setIsLoading(false);
+        })
+        .catch(() => navigation(Paths.Error));
+    }
   };
 
   const cities = React.useMemo(() => {

@@ -45,6 +45,7 @@ const Home: React.FC = React.memo(() => {
         enableHighAccuracy: true,
       });
   }, [coordinates]);
+
   const { isLoading, data: WeatherResponse } = useQuery(
     "query-RootObject",
     () => {
