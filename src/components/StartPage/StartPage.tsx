@@ -63,7 +63,11 @@ const StartPage: React.FC<Props> = React.memo(({ changeState }) => {
   const { t } = useTranslation("Translation");
 
   if (isLoading) {
-    return <CircularProgress />;
+    return (
+      <div className={"wrapper__loader"}>
+        <CircularProgress />;
+      </div>
+    );
   }
 
   return (

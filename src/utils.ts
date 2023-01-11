@@ -1,4 +1,4 @@
-import {Coordinates, JSONCities, RootObject, Seasons} from "./types/types";
+import { Coordinates, JSONCities, RootObject, Seasons } from "./types/types";
 import { format } from "date-fns";
 import { Clouds, Rain, Snow, Sunny } from "./components/icons";
 
@@ -68,10 +68,10 @@ export const getForecastIcon = (code: number): JSX.Element => {
     return Sunny;
   }
 };
- export const saveSession = (city: string, data: RootObject) => {
-   sessionStorage.setItem(city, JSON.stringify(data))
- }
+export const saveSession = (city: string, data: RootObject) => {
+  sessionStorage.setItem(city, JSON.stringify(data));
+};
 
- export const getDataFromSession = (city: string) => {
-   return JSON.parse(sessionStorage.getItem(city) as string) ?? false
- }
+export const getDataFromSession = (city: string) => {
+  return JSON.parse(sessionStorage.getItem(city) as string) ?? false;
+};

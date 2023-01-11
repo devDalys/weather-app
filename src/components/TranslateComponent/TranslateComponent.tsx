@@ -20,15 +20,15 @@ const TranslateComponent: React.FC<Props> = React.memo(({ text }) => {
   }, [isRussian]);
 
   const { isLoading } = useQuery(
-      "query-getCityTranslate",
-      () => {
-        getTranslate(text)
-            .then((res) => {
-              setTranslate(res.translated_text);
-            })
-            .catch((err) => setTranslate(text));
-      },
-      { enabled: !translate && !isRussian }
+    "query-getCityTranslate",
+    () => {
+      getTranslate(text)
+        .then((res) => {
+          setTranslate(res.translated_text);
+        })
+        .catch((err) => setTranslate(text));
+    },
+    { enabled: !translate && !isRussian }
   );
 
   if (!translate || isLoading) {
@@ -36,6 +36,6 @@ const TranslateComponent: React.FC<Props> = React.memo(({ text }) => {
   }
 
   return <div className={css.translated__text}>{translate}</div>;
-})
+});
 
 export default TranslateComponent;
