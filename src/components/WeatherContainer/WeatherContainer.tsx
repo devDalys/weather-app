@@ -6,10 +6,10 @@ import { farToCelc, isExistInStorage, saveCityStorage } from "../../utils";
 import Forecast from "../Forecast";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { settings } from "../icons";
 import Favorite from "../Favorite/Favorite";
 import Navbar from "../Navbar";
 import TranslateComponent from "../TranslateComponent";
+import Settings from "../Settings";
 
 const WeatherContainer: React.FC = () => {
   const context = React.useContext(Context) as RootObject;
@@ -53,6 +53,7 @@ const WeatherContainer: React.FC = () => {
           <Forecast forecast={context.forecasts} />
         </>
       )}
+      {isSettings && <Settings />}
     </div>
   );
 };
