@@ -31,7 +31,7 @@ export const getTranslate = async (
     .then((data) => {
       return data.data;
     })
-    .catch((err) => err);
+    .catch((err) => {return err});
 };
 
 export const getWeatherByCity = async (
