@@ -24,8 +24,8 @@ const TranslateComponent: React.FC<Props> = React.memo(({ text }) => {
     () => {
       getTranslate(text)
         .then((res) => {
-          if(!res.translated_text){
-            throw new Error('Server not response')
+          if (!res.translated_text) {
+            throw new Error("Server not response");
           }
           setTranslate(res.translated_text);
         })

@@ -1,22 +1,22 @@
-.title{
-    color: #546269;
-    font-size: 30px;
-    margin-bottom: 12px;
-    text-align: center;
-    font-weight: 600;
+.title {
+  color: #546269;
+  font-size: 30px;
+  margin-bottom: 12px;
+  text-align: center;
+  font-weight: 600;
 }
 
-.button{
-    border: none;
-    background: transparent;
-    border-radius: 8px;
-    padding: 5px 10px;
-    width: 100%;
-    backdrop-filter: blur(15px);
-    color: #546269;
-    text-align: left;
-    font-weight: 600;
-    font-size: 20px;
-    cursor: pointer;
-    margin-top: 12px;
+.button {
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  padding: 5px 10px;
+  width: 100%;
+  backdrop-filter: blur(15px);
+  color: #546269;
+  text-align: left;
+  font-weight: 600;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 12px;
 }
