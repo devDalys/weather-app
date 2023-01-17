@@ -19,4 +19,23 @@
   font-size: 20px;
   cursor: pointer;
   margin-top: 12px;
+  transition: all 1500ms;
+}
+
+.animation{
+  animation: animationClear 1500ms infinite;
+  color: #fff;
+  background-color: green;
+}
+
+@keyframes animationClear {
+  0%  {
+    background-color: green;
+  }
+  50%{
+    background-color: #01b601;
+  }
+  100% {
+    background-color: green;
+  }
 }

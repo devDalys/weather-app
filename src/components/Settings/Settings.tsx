@@ -9,6 +9,13 @@ const Settings: React.FC = () => {
   const clearAll = () => {
     localStorage.clear();
     sessionStorage.clear();
+
+      if(clearRef.current){
+          clearRef.current.classList.add(css.animation)
+          setTimeout(() => {
+              clearRef.current?.classList.remove(css.animation)
+          },1500)
+      }
   };
 
   return (
@@ -18,7 +25,7 @@ const Settings: React.FC = () => {
       <button onClick={() => navigate(Paths.Start)} className={css.button}>
         Редактировать города
       </button>
-      <button ref={clearRef} className={css.button}>
+      <button ref={clearRef} className={css.button} onClick={() => clearAll()}>
         Очистить все данные
       </button>
       <button className={css.button}>Фон другого сезона</button>
