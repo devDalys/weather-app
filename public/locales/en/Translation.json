@@ -6,5 +6,11 @@
   "Please allow me to take your coordinates to show the weather forecast": "Please allow me to take your coordinates to show the weather forecast",
   "or enter your city here": "or enter your city here",
   "inFavorite": "My Favorites",
-  "noFavorites": "Add to Favorites"
+  "noFavorites": "Add to Favorites",
+  "Settings": "Settings",
+  "Change cities": "Edit cities",
+  "Clear data": "Clear all data",
+  "Change background": "Another season's background",
+  "Link GitHub": "Link to GitHub",
+  "About": "About the author"
 }

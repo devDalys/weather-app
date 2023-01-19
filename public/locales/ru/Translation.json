@@ -6,5 +6,11 @@
   "Please allow me to take your coordinates to show the weather forecast": "Разреши мне, пожалуйста, взять твои координаты для отображения прогноза погоды",
   "or enter your city here": "или введи свой город здесь",
   "inFavorite": "В избранном",
-  "noFavorites": "Добавить в избранное"
+  "noFavorites": "Добавить в избранное",
+  "Settings": "Настройки",
+  "Change cities": "Редактировать города",
+  "Clear data": "Очистить все данные",
+  "Change background": "Фон другого сезона",
+  "Link GitHub": "Ссылка на GitHub",
+  "About": "Об авторе"
 }
