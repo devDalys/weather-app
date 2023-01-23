@@ -30,7 +30,6 @@ const Settings: React.FC = () => {
       <button ref={clearRef} className={css.button} onClick={() => clearAll()}>
         {t("Clear data")}
       </button>
-      <button className={css.button}>{t("Change background")}</button>
       <a
         href={"https://github.com/devDalys/weather-app"}
         target={"_blank"}
